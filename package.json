@@ -26,7 +26,8 @@
   },
   "devDependencies": {
     "@tobysmith568/prettier-config": "^2.0.0",
-    "@types/eslint": "^8.4.5"
+    "@types/eslint": "^8.4.5",
+    "cspell": "^6.5.0"
   },
   "peerDependencies": {
     "eslint": ">=8",
