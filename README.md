@@ -17,6 +17,12 @@ $ npm install @tobysmith568/eslint-config --save-dev
 
 ```jsonc
 {
-  "extends": "@tobysmith568/eslint-config"
+  "extends": "@tobysmith568/eslint-config/configs/node"
+}
+```
+or
+```jsonc
+{
+  "extends": "@tobysmith568/eslint-config/configs/react"
 }
 ```
