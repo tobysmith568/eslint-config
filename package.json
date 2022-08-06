@@ -1,0 +1,44 @@
+{
+  "name": "@tobysmith568/eslint-config",
+  "version": "0.0.0",
+  "author": {
+    "name": "Toby Smith",
+    "email": "tobysmith568@hotmail.co.uk",
+    "url": "https://tobysmith.uk"
+  },
+  "license": "ISC",
+  "description": "Toby Smith's (tobysmith568) ESLint configs",
+  "main": "dist/index.js",
+  "prettier": "@tobysmith568/prettier-config",
+  "homepage": "https://github.com/tobysmith568/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobysmith568/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tobysmith568/eslint-config/issues"
+  },
+  "files": [
+    "configs"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@tobysmith568/prettier-config": "^2.0.0",
+    "@types/eslint": "^8.4.5"
+  },
+  "peerDependencies": {
+    "eslint": ">=8",
+    "jest": ">=28"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jest": "^26.7.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-testing-library": "^5.6.0"
+  }
+}

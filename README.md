@@ -13,7 +13,7 @@ The personal [ESLint](https://eslint.io) configs for [Toby Smith](https://github
 $ npm install @tobysmith568/eslint-config --save-dev
 ```
 
-**Edit `.eslintrc`**:
+**Edit `.eslintrc.json`**:
 
 ```jsonc
 {
