@@ -28,13 +28,24 @@ const config: Linter.Config = {
   rules: {},
   overrides: [
     {
+      // Unit tests
+
       files: ["**/*.spec.ts", "**/*.spec.tsx"],
       extends: unitTestExtends,
       env: {
         jest: true
+      },
+      rules: {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "jest/expect-expect": "off"
       }
     },
     {
+      // E2E tests
+
       files: ["**/*.cy.ts", "**/*.cy.tsx"],
       extends: e2eTestExtends,
       globals: {
