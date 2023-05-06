@@ -5,6 +5,9 @@ on:
     types:
       - created
 
+env:
+  NODE_VERSION: 18
+
 jobs:
   ci:
     name: Run CI
@@ -24,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
           registry-url: https://registry.npmjs.org/
 
