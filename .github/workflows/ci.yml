@@ -58,10 +58,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload Build
+      - name: Upload configs
         uses: actions/upload-artifact@v3
         with:
-          name: Build
+          name: Configs
           path: ./configs
 
   licence:
