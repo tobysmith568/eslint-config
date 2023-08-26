@@ -83,3 +83,7 @@ jobs:
 
       - name: Check licences
         run: npx license-cop
+
+  codeql:
+    name: CodeQL
+    uses: ./.github/workflows/codeql.yml
