@@ -1,4 +1,4 @@
-import { Linter } from "eslint";
+import type { Linter } from "eslint";
 import {
   e2eTestExtends,
   standardExtends,
