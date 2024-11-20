@@ -40,7 +40,7 @@
   "devDependencies": {
     "@license-cop/permissive": "^1.4.1",
     "@tobysmith568/prettier-config": "^2.1.0",
-    "@types/eslint": "^8.56.5",
+    "@types/eslint": "^9.0.0",
     "cspell": "^8.5.0",
     "eslint": ">=8",
     "license-cop": "^1.4.1"
