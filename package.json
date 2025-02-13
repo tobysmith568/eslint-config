@@ -8,6 +8,11 @@
   },
   "license": "ISC",
   "description": "Toby Smith's (tobysmith568) ESLint config",
+  "keywords": [
+    "eslint",
+    "config",
+    "tobysmith568"
+  ],
   "main": "src/eslint.config.mjs",
   "prettier": "@tobysmith568/prettier-config",
   "homepage": "https://github.com/tobysmith568/eslint-config#readme",
@@ -38,7 +43,7 @@
   },
   "devDependencies": {
     "@license-cop/permissive": "^1.4.1",
-    "@tobysmith568/prettier-config": "^2.1.0",
-    "license-cop": "^1.4.1"
+    "@tobysmith568/prettier-config": "^2.2.1",
+    "license-cop": "^1.7.1"
   }
 }
