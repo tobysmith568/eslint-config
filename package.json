@@ -7,10 +7,16 @@
     "url": "https://tobysmith.uk"
   },
   "license": "ISC",
-  "description": "Toby Smith's (tobysmith568) ESLint configs",
-  "main": "dist/index.js",
+  "description": "Toby Smith's (tobysmith568) ESLint config",
+  "keywords": [
+    "eslint",
+    "config",
+    "tobysmith568"
+  ],
+  "main": "src/eslint.config.mjs",
   "prettier": "@tobysmith568/prettier-config",
   "homepage": "https://github.com/tobysmith568/eslint-config#readme",
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tobysmith568/eslint-config.git"
@@ -19,30 +25,25 @@
     "url": "https://github.com/tobysmith568/eslint-config/issues"
   },
   "files": [
-    "configs",
-    "eslint"
+    "src"
   ],
-  "scripts": {
-    "build": "tsc"
+  "scripts": {},
+  "peerDependencies": {
+    "eslint": "^9.0.0"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.5.0",
-    "@typescript-eslint/parser": "^7.5.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-cypress": "^3.0.0",
-    "eslint-plugin-jest": "^28.2.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-testing-library": "^6.2.0"
-  },
-  "peerDependencies": {
-    "eslint": ">=8"
+    "@eslint/js": "^9.20.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-cypress": "^4.1.0",
+    "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-testing-library": "^7.1.1",
+    "globals": "^15.15.0",
+    "typescript-eslint": "^8.24.0"
   },
   "devDependencies": {
     "@license-cop/permissive": "^1.4.1",
-    "@tobysmith568/prettier-config": "^2.1.0",
-    "@types/eslint": "^8.56.5",
-    "cspell": "^8.5.0",
-    "eslint": ">=8",
-    "license-cop": "^1.4.1"
+    "@tobysmith568/prettier-config": "^2.2.1",
+    "license-cop": "^1.7.1"
   }
 }

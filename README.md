@@ -17,20 +17,13 @@ The personal [ESLint](https://eslint.org/) configs for [Toby Smith](https://gith
 $ npm install @tobysmith568/eslint-config --save-dev
 ```
 
-**Edit `.eslintrc.json`**:
+**Edit `eslint.config.mjs`**:
 
-```jsonc
-{
-  "extends": "@tobysmith568/eslint-config/configs/node"
-}
-```
+```js
+import tobysmith568 from "@tobysmith568/eslint-config";
 
-or
-
-```jsonc
-{
-  "extends": "@tobysmith568/eslint-config/configs/react"
-}
+/** @type {import('eslint').Linter.Config[]} */
+export default [...tobysmith568];
 ```
 
 ## License

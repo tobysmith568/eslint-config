@@ -2,10 +2,6 @@
   "extends": "@license-cop/permissive",
 
   "packages": [
-    "caniuse-lite", // CC-BY-4.0
-    "type-fest@0.20.2", // MIT
-    "type-fest@0.21.3", // MIT
-    "argparse@2.0.1", // Python-2.0
-    "exit@0.1.2" // MIT
+    "argparse@2.0.1" // Python-2.0
   ]
 }
