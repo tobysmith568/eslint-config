@@ -1,4 +1,4 @@
-Copyright (c) 2023, Toby Smith <contact@tobythe.dev>
+Copyright (c) 2023-2025, Toby Smith <contact@tobythe.dev>
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
