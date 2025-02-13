@@ -16,7 +16,7 @@
   "main": "src/eslint.config.mjs",
   "prettier": "@tobysmith568/prettier-config",
   "homepage": "https://github.com/tobysmith568/eslint-config#readme",
-  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
+  "packageManager": "pnpm@10.3.0+sha512.ee592eda8815a8a293c206bb0917c4bb0ff274c50def7cbc17be05ec641fc2d1b02490ce660061356bd0d126a4d7eb2ec8830e6959fb8a447571c631d5a2442d",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tobysmith568/eslint-config.git"
