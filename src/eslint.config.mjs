@@ -19,7 +19,7 @@ export default [
   // Add general plugins
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat["jsx-runtime"],
 
   // Unit test plugins
   {
