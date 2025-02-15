@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
+    "target": "ES2022",
+    "module": "NodeNext",
     "rootDir": "./src",
-    "outDir": "./configs",
+    "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
     "forceConsistentCasingInFileNames": true
   }
 }
