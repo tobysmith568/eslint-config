@@ -51,6 +51,9 @@ jobs:
       - name: Set Version
         run: npm version ${{ inputs.version }} --git-tag-version false
 
+      - name: Build
+        run: pnpm build
+
       - name: Pack
         run: pnpm pack --pack-destination ./builds
 
