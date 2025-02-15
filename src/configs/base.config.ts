@@ -1,4 +1,5 @@
 import pluginJs from "@eslint/js";
+import type { Linter } from "eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
 import pluginCypress from "eslint-plugin-cypress/flat";
 import pluginJest from "eslint-plugin-jest";
@@ -9,8 +10,7 @@ import tseslint from "typescript-eslint";
 
 const unitTestFiles = ["**/*.(spec|test).[cm]?(j|t)s?(x)"];
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+export const baseConfig: Linter.Config[] = [
   // General setup
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
@@ -54,6 +54,10 @@ export default [
     plugins: {
       cypress: pluginCypress
     }
+  },
+  {
+    files: ["**/*.cy.[cm]?(j|t)s?(x)"],
+    ...pluginCypress.configs.globals
   },
 
   // Disable rules that conflict with Prettier
