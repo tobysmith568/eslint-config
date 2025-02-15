@@ -1,5 +1,5 @@
 name: Deployment
-run-name: Deployment for ${{ inputs.version }}
+run-name: Deployment for v${{ inputs.version }}
 
 on:
   workflow_dispatch:
