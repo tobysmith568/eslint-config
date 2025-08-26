@@ -2,7 +2,7 @@
   "extends": "@license-cop/permissive",
 
   "packages": [
-    "axe-core@4.10.2", // MPL-2.0
+    "axe-core@4.10.3", // MPL-2.0
     "argparse@2.0.1" // Python-2.0
   ]
 }
