@@ -860,8 +860,8 @@ packages:
     resolution: {integrity: sha512-sdleLVfCjBtgO5cNjA2HVRvWBJAHs4zwenaCPMNJAJU0yNxpzj80IpjOIimkpkr+mhlA+how5poQtt53PygbHA==}
     engines: {node: ^18.17.0 || >=20.5.0}
 
-  bole@5.0.20:
-    resolution: {integrity: sha512-Vp6VvDNrut3q0FAlz7LxezcLITDaLIsPcnS7L+UtOXnNc0M/gZ4SU5czN8NGbyL+jHrtNrSMsjSJ40qPKskxTg==}
+  bole@5.0.21:
+    resolution: {integrity: sha512-sWYAQ4j0CuTEqvcSrai6+Helnrkhc9dkUU2WZFlUiDPj7+eLGVN1jODH0a0Xmdohynhvu83URRwWJzPHE0veRw==}
 
   bottleneck@2.19.5:
     resolution: {integrity: sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw==}
@@ -3133,7 +3133,7 @@ snapshots:
 
   '@pnpm/logger@900.0.0':
     dependencies:
-      bole: 5.0.20
+      bole: 5.0.21
       ndjson: 2.0.0
 
   '@pnpm/matcher@1000.0.0':
@@ -3592,7 +3592,7 @@ snapshots:
       read-cmd-shim: 5.0.0
       write-file-atomic: 6.0.0
 
-  bole@5.0.20:
+  bole@5.0.21:
     dependencies:
       fast-safe-stringify: 2.1.1
       individual: 3.0.0
