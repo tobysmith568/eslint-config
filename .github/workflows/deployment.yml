@@ -81,8 +81,6 @@ jobs:
 
       - name: Deploy
         run: npm publish ./builds/tobysmith568-eslint-config-${{ inputs.version }}.tgz --access public --tag ${{ needs.calculate.outputs.npm_tag }} --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   release:
     name: Create GitHub Release
