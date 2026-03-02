@@ -1,7 +1,7 @@
 import pluginJs from "@eslint/js";
 import type { Linter } from "eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
-import pluginCypress from "eslint-plugin-cypress/flat";
+import pluginCypress from "eslint-plugin-cypress";
 import pluginJest from "eslint-plugin-jest";
 import pluginReact from "eslint-plugin-react";
 import pluginTestingLibrary from "eslint-plugin-testing-library";
