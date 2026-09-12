@@ -36,15 +36,15 @@
     "build": "tsc"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^10.0.0"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.4",
-    "@eslint/js": "^9.39.3",
+    "@eslint/js": "^10.0.0",
     "@next/eslint-plugin-next": "^16.1.6",
     "eslint-config-next": "^16.1.6",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-cypress": "^6.1.0",
+    "eslint-plugin-cypress": "^7.0.0",
     "eslint-plugin-jest": "^29.15.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-testing-library": "^7.16.0",
