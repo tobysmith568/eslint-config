@@ -8,11 +8,14 @@ import pluginTestingLibrary from "eslint-plugin-testing-library";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-const unitTestFiles = ["**/*.(spec|test).[cm]?(j|t)s?(x)"];
+const sourceFileExtensions = ["js", "mjs", "cjs", "jsx", "ts", "tsx", "mts", "cts"];
+const allSourceFiles = [`**/*.{${sourceFileExtensions.join(",")}}`];
+const unitTestFiles = [`**/*.{spec,test}.{${sourceFileExtensions.join(",")}}`];
+const cypressTestFiles = [`**/*.cy.{${sourceFileExtensions.join(",")}}`];
 
 export const baseConfig: Linter.Config[] = [
   // General setup
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
+  { files: allSourceFiles },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   { ignores: ["node_modules", "dist", "build"] },
 
@@ -66,13 +69,13 @@ export const baseConfig: Linter.Config[] = [
 
   // Cypress test plugins
   {
-    files: ["**/*.cy.[cm]?(j|t)s?(x)"],
+    files: cypressTestFiles,
     plugins: {
       cypress: pluginCypress
     }
   },
   {
-    files: ["**/*.cy.[cm]?(j|t)s?(x)"],
+    files: cypressTestFiles,
     ...pluginCypress.configs.globals
   },
 
