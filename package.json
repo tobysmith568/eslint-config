@@ -36,7 +36,7 @@
     "build": "tsc"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.0.0 || ^10.0.0"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.4",
