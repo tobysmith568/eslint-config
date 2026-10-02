@@ -43,8 +43,8 @@ importers:
         version: 8.56.1(eslint@9.39.3)(typescript@5.9.3)
     devDependencies:
       '@license-cop/permissive':
-        specifier: ^1.9.0
-        version: 1.9.0
+        specifier: ^2.0.0
+        version: 2.1.1
       '@tobysmith568/prettier-config':
         specifier: ^2.2.1
         version: 2.2.1(prettier@3.8.1)(typescript@5.9.3)
@@ -245,8 +245,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@license-cop/permissive@1.9.0':
-    resolution: {integrity: sha512-MeEjqD/SOmWOlM8a2eYfmAIQGnSOKZuprHksjb4AcxKWwUdXVz35fvDMqncl4AWEEbximLEcxt/Pn5QOrDNqdQ==}
+  '@license-cop/permissive@2.1.1':
+    resolution: {integrity: sha512-xDsm5VOHPs8Aq5yowIBh6vnIJRsLzmB4zSzMtbgnUyOMERXZBEdGT6effiizKrfo2tUDumUyolYDKB94RaVB/w==}
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
@@ -442,6 +442,7 @@ packages:
 
   '@octokit/webhooks-types@7.6.1':
     resolution: {integrity: sha512-S8u2cJzklBC0FgTwWVLaM8tMrDuDMVE4xiTK4EYXM9GntyvrdbSoxqDQa+Fh57CCNApyIpyeqPhhFEmHPfrXgw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@octokit/webhooks@12.3.2':
     resolution: {integrity: sha512-exj1MzVXoP7xnAcAB3jZ97pTvVPkQF9y6GA/dvYC47HV7vLv+24XRS6b/v/XnyikpEuvMhugEXdGtAlU086WkQ==}
@@ -2919,7 +2920,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@license-cop/permissive@1.9.0': {}
+  '@license-cop/permissive@2.1.1': {}
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
