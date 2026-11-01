@@ -42,6 +42,10 @@
       "types": "./dist/configs/next.d.ts",
       "default": "./dist/configs/next.js"
     },
+    "./test": {
+      "types": "./dist/configs/test.d.ts",
+      "default": "./dist/configs/test.js"
+    },
     "./jest": {
       "types": "./dist/configs/jest.d.ts",
       "default": "./dist/configs/jest.js"
