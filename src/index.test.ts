@@ -8,6 +8,8 @@ const entryPoints = [
   "/prettier",
   "/react",
   "/next",
+  "/astro",
+  "/test",
   "/jest",
   "/vitest",
   "/playwright",

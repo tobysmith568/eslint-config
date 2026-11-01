@@ -1,10 +1,10 @@
 import type { Linter } from "eslint";
 import pluginJest from "eslint-plugin-jest";
-import { testRelaxations } from "../shared/test-relaxations.ts";
+import test from "./test.ts";
 
 const config: Linter.Config[] = [
   { ...pluginJest.configs["flat/recommended"], name: "tobysmith568/jest/recommended" },
-  testRelaxations,
+  ...test,
   { name: "tobysmith568/jest/rules", rules: { "jest/expect-expect": "off" } }
 ];
 

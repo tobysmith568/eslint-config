@@ -1,10 +1,10 @@
 import type { Linter } from "eslint";
 import pluginCypress from "eslint-plugin-cypress";
-import { testRelaxations } from "../shared/test-relaxations.ts";
+import test from "./test.ts";
 
 const config: Linter.Config[] = [
   { ...pluginCypress.configs.recommended, name: "tobysmith568/cypress/recommended" },
-  testRelaxations
+  ...test
 ];
 
 export default config;

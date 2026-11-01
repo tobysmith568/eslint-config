@@ -40,22 +40,38 @@ The configs only say which rules to use; you decide which files they apply to wi
 
 Everything except `recommended` is opt-in. All of the plugins are bundled as dependencies, but a plugin is only loaded when you import the config that uses it.
 
-| Import                                              | What it adds                                                   |
-| --------------------------------------------------- | -------------------------------------------------------------- |
-| `@tobysmith568/eslint-config`                       | ESLint and typescript-eslint recommended rules, ignores        |
-| `@tobysmith568/eslint-config/node`                  | Node globals                                                   |
-| `@tobysmith568/eslint-config/browser`               | Browser globals                                                |
-| `@tobysmith568/eslint-config/prettier`              | Disables rules that conflict with Prettier (put this **last**) |
-| `@tobysmith568/eslint-config/react`                 | React, JSX runtime and React Hooks rules                       |
-| `@tobysmith568/eslint-config/next`                  | Next.js (including Core Web Vitals) rules                      |
-| `@tobysmith568/eslint-config/jest`                  | Jest rules and globals                                         |
-| `@tobysmith568/eslint-config/vitest`                | Vitest rules and globals                                       |
-| `@tobysmith568/eslint-config/playwright`            | Playwright rules                                               |
-| `@tobysmith568/eslint-config/cypress`               | Cypress rules and globals                                      |
-| `@tobysmith568/eslint-config/testing-library/dom`   | Testing Library (DOM) rules                                    |
-| `@tobysmith568/eslint-config/testing-library/react` | Testing Library (React) rules                                  |
+| Import                                              | What it adds                                                                       |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `@tobysmith568/eslint-config`                       | ESLint and typescript-eslint recommended rules, ignores                            |
+| `@tobysmith568/eslint-config/node`                  | Node globals                                                                       |
+| `@tobysmith568/eslint-config/browser`               | Browser globals                                                                    |
+| `@tobysmith568/eslint-config/prettier`              | Disables rules that conflict with Prettier (put this **last**)                     |
+| `@tobysmith568/eslint-config/react`                 | React, JSX runtime and React Hooks rules                                           |
+| `@tobysmith568/eslint-config/next`                  | Next.js (including Core Web Vitals) rules                                          |
+| `@tobysmith568/eslint-config/astro`                 | Astro and accessibility rules                                                      |
+| `@tobysmith568/eslint-config/test`                  | Relaxes strict TypeScript rules for tests, for frameworks without their own config |
+| `@tobysmith568/eslint-config/jest`                  | Jest rules and globals                                                             |
+| `@tobysmith568/eslint-config/vitest`                | Vitest rules and globals                                                           |
+| `@tobysmith568/eslint-config/playwright`            | Playwright rules                                                                   |
+| `@tobysmith568/eslint-config/cypress`               | Cypress rules and globals                                                          |
+| `@tobysmith568/eslint-config/testing-library/dom`   | Testing Library (DOM) rules                                                        |
+| `@tobysmith568/eslint-config/testing-library/react` | Testing Library (React) rules                                                      |
 
-The test framework configs (`jest`, `vitest`, `playwright` and `cypress`) also relax a few strict TypeScript rules, like `no-explicit-any`, for the files they are applied to.
+The test framework configs (`jest`, `vitest`, `playwright` and `cypress`) also relax a few strict TypeScript rules, like `no-explicit-any`, for the files they are applied to. If your test framework isn't one of those (e.g. `bun:test` or `node:test`), use `test` to get just those relaxations without any framework's rules or globals:
+
+```js
+{ files: ["**/*.spec.ts"], extends: [test] }
+```
+
+### Astro
+
+The `astro` config enables the [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) `recommended` and `jsx-a11y-strict` rules, plus `astro/no-set-html-directive` and `astro/no-unused-css-selector`. It already only applies to `.astro` files, so it doesn't need `files`:
+
+```js
+export default defineConfig([recommended, astro, prettier]);
+```
+
+It leaves out the plugin's `all` preset on purpose, as that changes with every minor release and includes stylistic rules (like `sort-attributes`). New rules are added by hand.
 
 ## Migrating from v2
 
