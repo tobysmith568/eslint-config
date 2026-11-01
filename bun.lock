@@ -6,7 +6,7 @@
       "name": "@tobysmith568/eslint-config",
       "dependencies": {
         "@eslint/js": "^9.39.3",
-        "@vitest/eslint-plugin": "1.6.27",
+        "@vitest/eslint-plugin": "1.6.28",
         "eslint-config-next": "^16.4.3",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-cypress": "^6.1.0",
@@ -427,7 +427,7 @@
 
     "@unrs/resolver-binding-win32-x64-msvc": ["@unrs/resolver-binding-win32-x64-msvc@1.11.1", "", { "os": "win32", "cpu": "x64" }, "sha512-lrW200hZdbfRtztbygyaq/6jP6AKE8qQN2KvPcJ+x7wiD038YtnYtZ82IMNJ69GJibV7bwL3y9FgK+5w/pYt6g=="],
 
-    "@vitest/eslint-plugin": ["@vitest/eslint-plugin@1.6.27", "", { "dependencies": { "@typescript-eslint/scope-manager": "8.72.1", "@typescript-eslint/utils": "8.72.1" }, "peerDependencies": { "@typescript-eslint/eslint-plugin": "*", "eslint": ">=8.57.0", "typescript": ">=5.0.0", "vitest": "*" }, "optionalPeers": ["@typescript-eslint/eslint-plugin", "typescript", "vitest"] }, "sha512-X1RCAfwbatG4GFbJ/1PIHP9MSZMt0JJThqbYID+vS4L783k6QGlLPe421wQE8dHXuGCcenVLsydiM4qzsYWxhg=="],
+    "@vitest/eslint-plugin": ["@vitest/eslint-plugin@1.6.28", "", { "dependencies": { "@typescript-eslint/scope-manager": "^8.71.2", "@typescript-eslint/utils": "^8.71.2" }, "peerDependencies": { "@typescript-eslint/eslint-plugin": "*", "eslint": ">=8.57.0", "typescript": ">=6.0.0", "vitest": "*" }, "optionalPeers": ["@typescript-eslint/eslint-plugin", "typescript", "vitest"] }, "sha512-2QorUqhTIR7gaDkANEBTjuG2SE5MJgFaWElINyq9bIaOEJXycZUliu5xYSzG6QRLunWopYshgcRs2vW2CTRqGA=="],
 
     "@yarnpkg/fslib": ["@yarnpkg/fslib@3.1.5", "", { "dependencies": { "tslib": "2.8.1" } }, "sha512-hXaPIWl5GZA+rXcx+yaKWUuePJruZuD+3A5A2X6paEBfFsyCD7oEp88lSMj1ym1ehBWUmhNH/YGOp+SrbmSBPg=="],
 
