@@ -8,6 +8,8 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "rewriteRelativeImportExtensions": true
   }
 }

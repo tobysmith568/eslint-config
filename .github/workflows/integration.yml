@@ -65,6 +65,18 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
+  test:
+    name: Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Test
+        run: pnpm test
+
   licence:
     name: Check licences
 
