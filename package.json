@@ -82,7 +82,11 @@
   "scripts": {
     "build": "tsdown",
     "typecheck": "bun check",
-    "test": "bun run typecheck && bun run build && bun test"
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "license-check": "license-cop",
+    "test": "bun run build && bun test"
   },
   "peerDependencies": {
     "eslint": "^9.22.0 || ^10.0.0"
