@@ -48,6 +48,7 @@ Everything except `recommended` is opt-in. All of the plugins are bundled as dep
 | `@tobysmith568/eslint-config/prettier`              | Disables rules that conflict with Prettier (put this **last**)                     |
 | `@tobysmith568/eslint-config/react`                 | React, JSX runtime and React Hooks rules                                           |
 | `@tobysmith568/eslint-config/next`                  | Next.js (including Core Web Vitals) rules                                          |
+| `@tobysmith568/eslint-config/astro`                 | Astro and accessibility rules                                                      |
 | `@tobysmith568/eslint-config/test`                  | Relaxes strict TypeScript rules for tests, for frameworks without their own config |
 | `@tobysmith568/eslint-config/jest`                  | Jest rules and globals                                                             |
 | `@tobysmith568/eslint-config/vitest`                | Vitest rules and globals                                                           |
@@ -61,6 +62,16 @@ The test framework configs (`jest`, `vitest`, `playwright` and `cypress`) also r
 ```js
 { files: ["**/*.spec.ts"], extends: [test] }
 ```
+
+### Astro
+
+The `astro` config enables the [eslint-plugin-astro](https://github.com/ota-meshi/eslint-plugin-astro) `recommended` and `jsx-a11y-strict` rules, plus `astro/no-set-html-directive` and `astro/no-unused-css-selector`. It already only applies to `.astro` files, so it doesn't need `files`:
+
+```js
+export default defineConfig([recommended, astro, prettier]);
+```
+
+It leaves out the plugin's `all` preset on purpose, as that changes with every minor release and includes stylistic rules (like `sort-attributes`). New rules are added by hand.
 
 ## Migrating from v2
 
