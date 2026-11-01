@@ -4,7 +4,8 @@ import test from "./test.ts";
 
 const config: Linter.Config[] = [
   { ...pluginPlaywright.configs["flat/recommended"], name: "tobysmith568/playwright/recommended" },
-  ...test
+  ...test,
+  { name: "tobysmith568/playwright/rules", rules: { "playwright/expect-expect": "off" } }
 ];
 
 export default config;

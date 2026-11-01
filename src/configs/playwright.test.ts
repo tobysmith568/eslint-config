@@ -15,6 +15,7 @@ describe("playwright", () => {
     const source = await resolve(consumer, "src/a.ts");
 
     expect(severity(e2e, "playwright/no-focused-test")).toBe(2);
+    expect(severity(e2e, "playwright/expect-expect")).toBe(0);
     expect(severity(e2e, "@typescript-eslint/no-explicit-any")).toBe(0);
     expect(pluginNames(source)).not.toContain("playwright");
   });
