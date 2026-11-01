@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "bun:test";
 
 // These import through the package name, so they exercise the `exports` map against the built output
 const entryPoints = [
@@ -24,8 +23,8 @@ describe("package exports", () => {
     it(`${specifier} resolves to a config array`, async () => {
       const { default: config } = await import(specifier);
 
-      assert.ok(Array.isArray(config));
-      assert.ok(config.length > 0);
+      expect(config).toBeArray();
+      expect(config.length).toBeGreaterThan(0);
     });
   }
 });

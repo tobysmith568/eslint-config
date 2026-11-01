@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "bun:test";
 import {
   assertWellFormed,
   globalNames,
@@ -21,11 +20,11 @@ describe("jest", () => {
     const test = await resolve(consumer, "src/a.test.ts");
     const source = await resolve(consumer, "src/a.ts");
 
-    assert.equal(severity(test, "jest/no-focused-tests"), 2);
-    assert.equal(severity(test, "jest/expect-expect"), 0);
-    assert.ok(globalNames(test).includes("describe"));
-    assert.equal(severity(source, "jest/no-focused-tests"), undefined);
-    assert.ok(!pluginNames(source).includes("jest"));
+    expect(severity(test, "jest/no-focused-tests")).toBe(2);
+    expect(severity(test, "jest/expect-expect")).toBe(0);
+    expect(globalNames(test)).toContain("describe");
+    expect(severity(source, "jest/no-focused-tests")).toBeUndefined();
+    expect(pluginNames(source)).not.toContain("jest");
   });
 
   it("can be scoped to a different glob", async () => {
@@ -34,8 +33,8 @@ describe("jest", () => {
     const spec = await resolve(consumer, "src/a.spec.ts");
     const test = await resolve(consumer, "src/a.test.ts");
 
-    assert.equal(severity(spec, "jest/no-focused-tests"), 2);
-    assert.equal(severity(test, "jest/no-focused-tests"), undefined);
+    expect(severity(spec, "jest/no-focused-tests")).toBe(2);
+    expect(severity(test, "jest/no-focused-tests")).toBeUndefined();
   });
 
   it("relaxes strict typescript rules in the files it applies to only", async () => {
@@ -44,13 +43,13 @@ describe("jest", () => {
     const test = await resolve(consumer, "src/a.test.ts");
     const source = await resolve(consumer, "src/a.ts");
 
-    assert.equal(severity(test, "@typescript-eslint/no-explicit-any"), 0);
-    assert.equal(severity(source, "@typescript-eslint/no-explicit-any"), 2);
+    expect(severity(test, "@typescript-eslint/no-explicit-any")).toBe(0);
+    expect(severity(source, "@typescript-eslint/no-explicit-any")).toBe(2);
   });
 
   it("works without recommended", async () => {
     const resolved = await resolve([{ files: ["**/*.test.ts"], extends: [jest] }], "src/a.test.ts");
 
-    assert.equal(severity(resolved, "@typescript-eslint/no-explicit-any"), 0);
+    expect(severity(resolved, "@typescript-eslint/no-explicit-any")).toBe(0);
   });
 });

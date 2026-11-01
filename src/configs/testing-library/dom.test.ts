@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "bun:test";
 import { assertWellFormed, resolve, severity } from "../../shared/test-utils.ts";
 import recommended from "../recommended.ts";
 import dom from "./dom.ts";
@@ -15,7 +14,7 @@ describe("testing-library/dom", () => {
       "src/a.test.ts"
     );
 
-    assert.equal(severity(resolved, "testing-library/await-async-queries"), 2);
-    assert.equal(severity(resolved, "testing-library/render-result-naming-convention"), undefined);
+    expect(severity(resolved, "testing-library/await-async-queries")).toBe(2);
+    expect(severity(resolved, "testing-library/render-result-naming-convention")).toBeUndefined();
   });
 });

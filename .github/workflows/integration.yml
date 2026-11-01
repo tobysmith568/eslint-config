@@ -34,10 +34,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
       - name: Run Prettier
-        run: pnpm exec prettier --check .
+        run: bun x prettier --check .
 
   build:
     name: Build
@@ -46,16 +52,22 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
       - name: Set Version
         run: npm version ${{ inputs.version }} --git-tag-version false
 
       - name: Build
-        run: pnpm build
+        run: bun run build
 
       - name: Pack
-        run: pnpm pack --pack-destination ./builds
+        run: bun pm pack --destination ./builds
 
       - name: Upload Build
         uses: actions/upload-artifact@v7
@@ -72,10 +84,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
       - name: Test
-        run: pnpm test
+        run: bun run test
 
   licence:
     name: Check licences
@@ -84,10 +102,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
       - name: Check Licenses
-        run: pnpm exec license-cop
+        run: bun x license-cop
 
   codeql:
     name: CodeQL

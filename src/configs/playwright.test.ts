@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "bun:test";
 import { assertWellFormed, pluginNames, resolve, severity } from "../shared/test-utils.ts";
 import playwright from "./playwright.ts";
 import recommended from "./recommended.ts";
@@ -15,9 +14,9 @@ describe("playwright", () => {
     const e2e = await resolve(consumer, "e2e/a.ts");
     const source = await resolve(consumer, "src/a.ts");
 
-    assert.equal(severity(e2e, "playwright/no-focused-test"), 2);
-    assert.equal(severity(e2e, "@typescript-eslint/no-explicit-any"), 0);
-    assert.ok(!pluginNames(source).includes("playwright"));
+    expect(severity(e2e, "playwright/no-focused-test")).toBe(2);
+    expect(severity(e2e, "@typescript-eslint/no-explicit-any")).toBe(0);
+    expect(pluginNames(source)).not.toContain("playwright");
   });
 
   it("does not bring in the cypress plugin", async () => {
@@ -26,6 +25,6 @@ describe("playwright", () => {
       "e2e/a.ts"
     );
 
-    assert.ok(!pluginNames(e2e).includes("cypress"));
+    expect(pluginNames(e2e)).not.toContain("cypress");
   });
 });

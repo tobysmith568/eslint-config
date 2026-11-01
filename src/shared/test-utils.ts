@@ -1,6 +1,6 @@
+import { expect } from "bun:test";
 import { ESLint, type Linter } from "eslint";
 import { defineConfig } from "eslint/config";
-import assert from "node:assert/strict";
 
 type ConsumerConfig = Parameters<typeof defineConfig>[0];
 
@@ -15,7 +15,9 @@ export const resolve = async (
   });
 
   const resolved: Linter.Config | undefined = await eslint.calculateConfigForFile(filePath);
-  assert.ok(resolved, `${filePath} was not matched by any config`);
+  if (!resolved) {
+    throw new Error(`${filePath} was not matched by any config`);
+  }
 
   return resolved;
 };
@@ -51,21 +53,19 @@ export const assertWellFormed = (
   config: Linter.Config[],
   { allowFiles = false, requireNames = true }: WellFormedOptions = {}
 ): void => {
-  assert.ok(Array.isArray(config));
-  assert.ok(config.length > 0);
-  assert.ok(config.every(c => typeof c === "object" && c !== null));
+  expect(config).toBeArray();
+  expect(config.length).toBeGreaterThan(0);
+  expect(config.every(c => typeof c === "object" && c !== null)).toBe(true);
 
   if (!allowFiles) {
-    assert.ok(
-      config.every(c => c.files === undefined),
-      "should not decide which files it applies to"
-    );
+    // Any config object listed here is deciding which files it applies to
+    const withFiles = config.filter(c => c.files !== undefined);
+    expect(withFiles).toEqual([]);
   }
 
   if (requireNames) {
-    assert.ok(
-      config.every(c => typeof c.name === "string"),
-      "every config object should have a name"
-    );
+    // Any config object listed here is missing a `name`
+    const unnamed = config.filter(c => typeof c.name !== "string");
+    expect(unnamed).toEqual([]);
   }
 };

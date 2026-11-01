@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "bun:test";
 import { assertWellFormed, resolve, severity } from "../../shared/test-utils.ts";
 import recommended from "../recommended.ts";
 import react from "./react.ts";
@@ -15,6 +14,6 @@ describe("testing-library/react", () => {
       "src/a.test.tsx"
     );
 
-    assert.equal(severity(resolved, "testing-library/render-result-naming-convention"), 2);
+    expect(severity(resolved, "testing-library/render-result-naming-convention")).toBe(2);
   });
 });
