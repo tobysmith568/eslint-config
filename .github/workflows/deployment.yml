@@ -28,7 +28,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
 
       - name: Set Version
         run: npm version ${{ inputs.version }} --git-tag-version false
@@ -71,7 +73,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
 
       - name: Download Build
         uses: actions/download-artifact@v8

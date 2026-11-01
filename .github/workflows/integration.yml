@@ -1,4 +1,5 @@
 name: Continuous Integration
+run-name: Continuous Integration for ${{ (github.event.pull_request.number && format('PR {0}', github.event.pull_request.number)) || github.ref_name }}
 
 on:
   push:
@@ -22,40 +23,106 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 defaults:
   run:
     shell: pwsh
 
 jobs:
+  format:
+    name: Format
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
+
+      - name: Run Prettier
+        run: bun run format:check
+
   lint:
     name: Lint
 
     runs-on: ubuntu-latest
 
+    timeout-minutes: 5
+
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v7
 
-      - name: Run Prettier
-        run: pnpm exec prettier --check .
+      - uses: ./.github/actions/setup
+
+      - name: Run ESLint
+        run: bun run lint
+
+  typecheck:
+    name: Typecheck
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
+
+      - name: Check types
+        run: bun run typecheck
+
+  licence:
+    name: Check licences
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
+
+      - name: Check licences
+        run: bun run license-check
 
   build:
     name: Build
 
     runs-on: ubuntu-latest
 
+    timeout-minutes: 10
+
+    needs:
+      - typecheck
+
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup
 
       - name: Set Version
         run: npm version ${{ inputs.version }} --git-tag-version false
 
       - name: Build
-        run: pnpm build
+        run: bun run build
 
       - name: Pack
-        run: pnpm pack --pack-destination ./builds
+        run: bun pm pack --destination ./builds
 
       - name: Upload Build
         uses: actions/upload-artifact@v7
@@ -65,17 +132,24 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
-  licence:
-    name: Check licences
+  test:
+    name: Test
 
     runs-on: ubuntu-latest
 
+    timeout-minutes: 10
+
+    needs:
+      - typecheck
+
     steps:
       - name: Checkout
-        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+        uses: actions/checkout@v7
 
-      - name: Check Licenses
-        run: pnpm exec license-cop
+      - uses: ./.github/actions/setup
+
+      - name: Test
+        run: bun run test
 
   codeql:
     name: CodeQL
